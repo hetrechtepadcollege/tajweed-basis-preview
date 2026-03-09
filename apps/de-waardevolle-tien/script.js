@@ -1,3 +1,10 @@
+// ─── GoatCounter tracking ────────────────────────────────────
+function trackEvent(path, title) {
+  if (window.goatcounter && typeof window.goatcounter.count === 'function') {
+    window.goatcounter.count({ path, title, event: true });
+  }
+}
+
 // ─── State ──────────────────────────────────────────────────
 const TOTAL_DAYS = 10;
 const ODD_NIGHTS = [1, 3, 5, 7, 9]; // Oneven nachten (Laylatul Qadr-kandidaten)
@@ -356,6 +363,10 @@ document.querySelectorAll('[data-prayer]').forEach(cb => {
     updatePrayerUI(d);
     updateProgress(d);
     buildDayNav();
+    trackEvent(
+      `de-waardevolle-tien/gebed-${cb.dataset.prayer}`,
+      `Gebed ${cb.dataset.prayer} — nacht ${currentDay} — ${cb.checked ? 'afgevinkt' : 'ongedaan'}`
+    );
   });
 });
 
@@ -367,6 +378,10 @@ document.getElementById('koranMinus').addEventListener('click', () => {
     updateKoranUI(d);
     updateProgress(d);
     buildDayNav();
+    trackEvent(
+      'de-waardevolle-tien/koran-recitatie',
+      `Koran — nacht ${currentDay} — ${d.koran} pagina's`
+    );
   }
 });
 
@@ -377,6 +392,10 @@ document.getElementById('koranPlus').addEventListener('click', () => {
   updateKoranUI(d);
   updateProgress(d);
   buildDayNav();
+  trackEvent(
+    'de-waardevolle-tien/koran-recitatie',
+    `Koran — nacht ${currentDay} — ${d.koran} pagina's`
+  );
 });
 
 document.getElementById('sadaqahToggle').addEventListener('change', (e) => {
@@ -386,6 +405,10 @@ document.getElementById('sadaqahToggle').addEventListener('change', (e) => {
   updateSadaqahUI(d);
   updateProgress(d);
   buildDayNav();
+  trackEvent(
+    'de-waardevolle-tien/sadaqah',
+    `Sadaqah — nacht ${currentDay} — ${e.target.checked ? 'afgevinkt' : 'ongedaan'}`
+  );
 });
 
 document.getElementById('nachtToggle').addEventListener('change', (e) => {
@@ -395,6 +418,10 @@ document.getElementById('nachtToggle').addEventListener('change', (e) => {
   updateNachtUI(d);
   updateProgress(d);
   buildDayNav();
+  trackEvent(
+    'de-waardevolle-tien/nachtgebed',
+    `Nachtgebed — nacht ${currentDay} — ${e.target.checked ? 'afgevinkt' : 'ongedaan'}`
+  );
 });
 
 document.querySelectorAll('[data-extra]').forEach(cb => {
@@ -408,6 +435,11 @@ document.querySelectorAll('[data-extra]').forEach(cb => {
 document.getElementById('saveBtn').addEventListener('click', () => {
   saveData();
   showToast('✓ Dag opgeslagen');
+  const pct = calcProgress(getDayData(currentDay));
+  trackEvent(
+    'de-waardevolle-tien/dag-opgeslagen',
+    `Dag opgeslagen — nacht ${currentDay} — ${pct}% voltooid`
+  );
 });
 
 document.getElementById('qadrBadge').addEventListener('click', () => openModal());
