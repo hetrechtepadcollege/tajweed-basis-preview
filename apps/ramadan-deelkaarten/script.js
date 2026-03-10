@@ -314,6 +314,7 @@ function renderKaart(index) {
   document.getElementById('kaart').hidden = false;
   document.getElementById('deel-knoppen').hidden = false;
 
+  updateNavButtons(index, getNachtStatus());
   trackEvent('nacht-bekeken', { nacht: nacht.nacht });
 }
 
@@ -623,6 +624,40 @@ function wrapTekstCanvas(ctx, tekst, maxBreed) {
   if (regel) regels.push(regel);
   return regels;
 }
+
+// ─── Nacht-navigatie ───────────────────────────────────────────────────────────
+
+function updateNavButtons(index, maxIndex) {
+  const nav = document.getElementById('nacht-nav');
+  const btnVorige = document.getElementById('btn-vorige-nacht');
+  const btnVolgende = document.getElementById('btn-volgende-nacht');
+
+  const heeftVorige = index > 0;
+  const heeftVolgende = index < maxIndex;
+
+  btnVorige.hidden = !heeftVorige;
+  btnVolgende.hidden = !heeftVolgende;
+  nav.hidden = !heeftVorige && !heeftVolgende;
+
+  if (heeftVorige) btnVorige.textContent = `← Nacht ${NACHTEN[index - 1].nacht}`;
+  if (heeftVolgende) btnVolgende.textContent = `Nacht ${NACHTEN[index + 1].nacht} →`;
+}
+
+document.getElementById('btn-vorige-nacht').addEventListener('click', () => {
+  if (huidigIndex > 0) {
+    huidigIndex -= 1;
+    renderKaart(huidigIndex);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+});
+
+document.getElementById('btn-volgende-nacht').addEventListener('click', () => {
+  if (huidigIndex < getNachtStatus()) {
+    huidigIndex += 1;
+    renderKaart(huidigIndex);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+});
 
 // ─── GoatCounter tracking ──────────────────────────────────────────────────────
 
