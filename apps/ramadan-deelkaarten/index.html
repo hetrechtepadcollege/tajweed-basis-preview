@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="nl" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/icons/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+  <link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/icons/site.webmanifest">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://hetrechtepadcollege.goatcounter.com;">
+  <meta name="description" content="Deel dagelijkse kaarten met Koranverzen, hadith, du'as en dzikr voor de laatste 10 nachten van Ramadan." />
+  <title>Laylatul Qadr Deelkaarten | Het Rechte Pad College</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600;700&family=Noto+Sans:wght@400;500;600&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="app-wrapper">
+
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo-wrap">
+        <img src="images/HRPC-logo-white.png" alt="Het Rechte Pad College" />
+      </div>
+      <h1 class="app-titel">Laylatul Qadr Deelkaarten</h1>
+      <p class="app-subtitel">Laatste 10 nachten · Koran, hadith, du'a & dhikr<br><b>Lees. Leer. Deel.</b></p>
+    </header>
+
+    <!-- Status: te vroeg -->
+    <div id="staat-vroeg" class="status-kaart" hidden>
+      <div class="status-maan" aria-hidden="true">🌙</div>
+      <h2 class="status-titel">De laatste 10 nachten zijn nog niet begonnen</h2>
+      <p class="status-tekst">De deelkaarten zijn beschikbaar vanaf nacht 21 van Ramadan. Kom dan elke nacht terug voor de kaart van die nacht.</p>
+    </div>
+
+    <!-- Status: na Ramadan -->
+    <div id="staat-klaar" class="status-kaart" hidden>
+      <div class="status-maan" aria-hidden="true">☀️</div>
+      <h2 class="status-titel">Ramadan is voorbij</h2>
+      <p class="status-tekst">Moge Allah jullie ʿibādah accepteren. Taqabbalallāhu minnā wa minkum.</p>
+    </div>
+
+    <!-- Kaart -->
+    <article id="kaart" class="kaart" hidden aria-live="polite">
+
+      <!-- Kaart-header -->
+      <header class="kaart-header">
+
+        <!-- Wassende maan SVG -->
+        <svg class="maan-svg" viewBox="0 0 100 100" aria-hidden="true">
+          <defs>
+            <mask id="crescent-mask">
+              <circle cx="46" cy="50" r="36" fill="white"/>
+              <circle cx="62" cy="40" r="30" fill="black"/>
+            </mask>
+          </defs>
+          <circle cx="46" cy="50" r="36" fill="#C8A96E" mask="url(#crescent-mask)"/>
+          <text x="80" y="28" fill="#C8A96E" font-size="13" text-anchor="middle">✦</text>
+          <text x="90" y="50" fill="#C8A96E" font-size="9"  text-anchor="middle">✦</text>
+          <text x="76" y="66" fill="#C8A96E" font-size="7"  text-anchor="middle">✦</text>
+        </svg>
+
+        <!-- Laylatul Qadr badge (oneven nachten) -->
+        <div id="qadr-badge" class="qadr-badge" aria-label="Mogelijke Laylatul Qadr nacht">
+          <span aria-hidden="true">✦</span> Mogelijk Laylatul Qadr <span aria-hidden="true">✦</span>
+        </div>
+
+        <h2 id="nacht-nummer" class="nacht-nummer">Nacht 21</h2>
+        <p  id="nacht-thema"  class="nacht-thema">Begin van de Kostbare Nachten</p>
+
+      </header>
+
+      <!-- Inhoud -->
+      <div class="kaart-inhoud">
+
+        <!-- Koranvers -->
+        <div class="separator" aria-hidden="true"><span>❋</span></div>
+        <section class="sectie" aria-labelledby="label-vers">
+          <p id="label-vers" class="sectie-label"><span aria-hidden="true">📖</span> Koran</p>
+          <p id="vers-arabisch"   class="arabisch"     dir="rtl" lang="ar"></p>
+          <p id="vers-referentie" class="referentie"></p>
+          <p id="vers-vertaling"  class="vertaling"></p>
+        </section>
+
+        <!-- Hadith -->
+        <div class="separator" aria-hidden="true"><span>❋</span></div>
+        <section class="sectie" aria-labelledby="label-hadith">
+          <p id="label-hadith" class="sectie-label"><span aria-hidden="true">📜</span> Hadith</p>
+          <p id="hadith-tekst" class="hadith-tekst"></p>
+          <p id="hadith-bron"  class="hadith-bron"></p>
+        </section>
+
+        <!-- Du'a -->
+        <div class="separator" aria-hidden="true"><span>❋</span></div>
+        <section class="sectie" aria-labelledby="label-dua">
+          <p id="label-dua" class="sectie-label"><span aria-hidden="true">🤲🏽</span> Du'a</p>
+          <p id="dua-arabisch"       class="arabisch"       dir="rtl" lang="ar"></p>
+          <p id="dua-transliteratie" class="transliteratie"></p>
+          <p id="dua-betekenis"      class="betekenis"></p>
+          <p id="dua-bron"           class="dua-bron"></p>
+        </section>
+
+        <!-- Dhikr / Istigfar -->
+        <div class="separator" aria-hidden="true"><span>❋</span></div>
+        <section class="sectie" aria-labelledby="label-dhikr">
+          <p id="label-dhikr" class="sectie-label"><span aria-hidden="true">📿</span> Dzikr / Istighfār</p>
+          <p id="dhikr-arabisch"       class="arabisch"       dir="rtl" lang="ar"></p>
+          <p id="dhikr-transliteratie" class="transliteratie"></p>
+          <p id="dhikr-betekenis"      class="betekenis"></p>
+          <p id="dhikr-bron"           class="dhikr-bron"></p>
+        </section>
+
+      </div><!-- /kaart-inhoud -->
+
+    </article><!-- /kaart -->
+
+    <!-- Deel-knoppen -->
+    <div id="deel-knoppen" class="deel-knoppen" hidden>
+      <button id="btn-whatsapp" class="deel-btn btn-whatsapp">
+        <span class="btn-icon" aria-hidden="true">💬</span> Deel via WhatsApp
+      </button>
+      <button id="btn-download" class="deel-btn btn-download">
+        <span class="btn-icon" aria-hidden="true">⬇</span> Download afbeelding
+      </button>
+    </div>
+
+    <!-- Terug naar Leerportaal -->
+    <div class="terug-wrap">
+      <a href="../../" class="back-link">← Terug naar Leerportaal</a>
+    </div>
+
+  </div><!-- /app-wrapper -->
+
+  <script src="script.js"></script>
+  <script data-goatcounter="https://hetrechtepadcollege.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

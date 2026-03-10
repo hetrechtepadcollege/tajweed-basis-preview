@@ -1,0 +1,394 @@
+/* ─── IndoPak Quran font ──────────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'PDMSSaleemQuranFont';
+  src: url('fonts/PDMSSaleemQuranFont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Variabelen ──────────────────────────────────────────────────────────────── */
+:root {
+  --goud:        #C8A96E;
+  --goud-licht:  #E8D5A3;
+  --goud-diep:   #9A7A4A;
+  --navy:        #080F1C;
+  --navy-kaart:  #0D1828;
+  --navy-sectie: rgba(200, 169, 110, 0.045);
+  --cream:       #F0E8D8;
+  --muted:       #9AABB8;
+  --bron:        #6A8090;
+  --radius:      18px;
+}
+
+/* ─── Reset & basis ───────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans', system-ui, sans-serif;
+  background-color: var(--navy);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cg fill='none' stroke='%23C8A96E' stroke-width='0.4' opacity='0.08'%3E%3Crect x='20' y='20' width='40' height='40'/%3E%3Crect x='20' y='20' width='40' height='40' transform='rotate(45 40 40)'/%3E%3Ccircle cx='40' cy='40' r='4' fill='%23C8A96E' stroke='none' opacity='0.4'/%3E%3C/g%3E%3C/svg%3E");
+  color: var(--cream);
+  min-height: 100dvh;
+  padding-bottom: 48px;
+}
+
+/* ─── App wrapper ─────────────────────────────────────────────────────────────── */
+.app-wrapper {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ─── Header ──────────────────────────────────────────────────────────────────── */
+.app-header {
+  text-align: center;
+  padding: 32px 0 24px;
+}
+
+.logo-wrap {
+  margin-bottom: 20px;
+}
+
+.logo-wrap img {
+  height: 72px;
+  width: auto;
+  filter: drop-shadow(0 0 8px rgba(200, 169, 110, 0.3));
+}
+
+.app-titel {
+  font-family: 'Cinzel', 'Amiri', serif;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  color: var(--goud);
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 24px rgba(200, 169, 110, 0.35);
+  margin-bottom: 6px;
+}
+
+.app-subtitel {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+
+/* ─── Kaart ───────────────────────────────────────────────────────────────────── */
+.kaart {
+  background: linear-gradient(160deg, #0D1828 0%, #0A1520 60%, #0D1828 100%);
+  border: 1px solid rgba(200, 169, 110, 0.28);
+  border-radius: var(--radius);
+  box-shadow:
+    0 0 0 1px rgba(200, 169, 110, 0.07),
+    0 8px 48px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(200, 169, 110, 0.12);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+/* ─── Kaart-header ────────────────────────────────────────────────────────────── */
+.kaart-header {
+  padding: 32px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(200, 169, 110, 0.07) 0%, transparent 100%);
+  border-bottom: 1px solid rgba(200, 169, 110, 0.1);
+  position: relative;
+}
+
+/* Geometrische hoekaccenten */
+.kaart-header::before,
+.kaart-header::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-color: rgba(200, 169, 110, 0.3);
+  border-style: solid;
+}
+.kaart-header::before {
+  top: 14px; left: 14px;
+  border-width: 1px 0 0 1px;
+}
+.kaart-header::after {
+  top: 14px; right: 14px;
+  border-width: 1px 1px 0 0;
+}
+
+/* Wassende maan SVG */
+.maan-svg {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 0 12px rgba(200, 169, 110, 0.4));
+}
+
+/* Oneven-nacht badge */
+.qadr-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(200, 169, 110, 0.12);
+  border: 1px solid rgba(200, 169, 110, 0.3);
+  border-radius: 50px;
+  color: var(--goud-licht);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  padding: 5px 14px;
+  margin-bottom: 12px;
+}
+
+.nacht-nummer {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.8rem, 7vw, 2.6rem);
+  color: var(--goud);
+  text-shadow: 0 0 30px rgba(200, 169, 110, 0.4);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.nacht-thema {
+  font-size: 0.95rem;
+  color: var(--goud-licht);
+  font-style: italic;
+}
+
+/* ─── Inhoud ──────────────────────────────────────────────────────────────────── */
+.kaart-inhoud {
+  padding: 0 24px 28px;
+}
+
+/* ─── Separator ───────────────────────────────────────────────────────────────── */
+.separator {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 0 14px;
+}
+
+.separator::before,
+.separator::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200, 169, 110, 0.25), transparent);
+}
+
+.separator span {
+  color: var(--goud);
+  font-size: 0.9rem;
+  line-height: 1;
+  opacity: 0.8;
+}
+
+/* ─── Secties ─────────────────────────────────────────────────────────────────── */
+.sectie {
+  background: var(--navy-sectie);
+  border-left: 2px solid rgba(200, 169, 110, 0.25);
+  border-radius: 0 10px 10px 0;
+  padding: 16px 16px 16px 18px;
+  margin-bottom: 4px;
+}
+
+.sectie-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--goud);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* ─── Arabische tekst ─────────────────────────────────────────────────────────── */
+.arabisch {
+  font-family: 'PDMSSaleemQuranFont', 'Amiri', serif;
+  font-size: clamp(1.55rem, 5.5vw, 2rem);
+  line-height: 2.6;
+  word-spacing: 0.18em;
+  color: var(--cream);
+  direction: rtl;
+  text-align: right;
+  margin-bottom: 8px;
+}
+
+/* ─── Referentie/bron ─────────────────────────────────────────────────────────── */
+.referentie {
+  font-size: 0.78rem;
+  color: var(--bron);
+  margin-bottom: 8px;
+  font-style: normal;
+}
+
+/* ─── Vertalingen & betekenis ─────────────────────────────────────────────────── */
+.vertaling,
+.betekenis {
+  font-size: 0.9rem;
+  color: var(--cream);
+  line-height: 1.65;
+  font-style: italic;
+}
+
+/* ─── Hadith tekst ────────────────────────────────────────────────────────────── */
+.hadith-tekst {
+  font-size: 0.92rem;
+  color: var(--cream);
+  line-height: 1.65;
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.hadith-bron {
+  font-size: 0.78rem;
+  color: var(--bron);
+}
+
+/* ─── Transliteratie ──────────────────────────────────────────────────────────── */
+.transliteratie {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: italic;
+  margin: 4px 0 6px;
+  line-height: 1.5;
+}
+
+.dua-bron,
+.dhikr-bron {
+  font-size: 0.78rem;
+  color: var(--bron);
+  margin-top: 6px;
+}
+
+
+/* ─── Deel-knoppen ────────────────────────────────────────────────────────────── */
+.deel-knoppen {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.deel-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 50px;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.15s, box-shadow 0.15s, opacity 0.2s;
+}
+
+.deel-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+.deel-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.deel-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+}
+
+.btn-download {
+  background: linear-gradient(135deg, var(--goud-diep), var(--goud));
+  color: #0A0A0A;
+  box-shadow: 0 4px 14px rgba(200, 169, 110, 0.35);
+}
+
+.btn-icon {
+  font-size: 1.1em;
+  line-height: 1;
+}
+
+/* ─── Responsief ──────────────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .kaart-inhoud { padding: 0 16px 24px; }
+  .kaart-header { padding: 28px 18px 20px; }
+  .sectie { padding: 14px 12px 14px 14px; }
+  .deel-knoppen { flex-direction: column; align-items: stretch; }
+  .deel-btn { justify-content: center; }
+}
+
+/* ─── Verborgen elementen ─────────────────────────────────────────────────────── */
+[hidden] { display: none !important; }
+
+/* ─── Statuskaarten (te vroeg / voorbij) ─────────────────────────────────────── */
+.status-kaart {
+  background: linear-gradient(160deg, #0D1828 0%, #0A1520 100%);
+  border: 1px solid rgba(200, 169, 110, 0.2);
+  border-radius: var(--radius);
+  padding: 48px 32px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.status-maan {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.status-titel {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  color: var(--goud);
+  margin-bottom: 12px;
+}
+
+.status-tekst {
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* ─── Terug naar Leerportaal ──────────────────────────────────────────────────── */
+.terug-wrap {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.back-link {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  color: var(--goud);
+  background: rgba(200, 169, 110, 0.10);
+  border: 1px solid rgba(200, 169, 110, 0.22);
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 10px 28px;
+  border-radius: 50px;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.back-link:hover {
+  color: var(--goud-licht);
+  background: rgba(200, 169, 110, 0.18);
+  border-color: rgba(200, 169, 110, 0.45);
+  transform: translateY(-1px);
+}
+
+/* ─── Toegankelijkheid ────────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--goud);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
