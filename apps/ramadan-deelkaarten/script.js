@@ -306,17 +306,10 @@ function renderKaart(index) {
   document.getElementById('dua-betekenis').textContent = nacht.dua.betekenis;
   document.getElementById('dua-bron').textContent = `— ${nacht.dua.bron}`;
 
-<<<<<<< HEAD
   document.getElementById('dzikr-arabisch').textContent = nacht.dzikr.arabisch;
   document.getElementById('dzikr-transliteratie').textContent = nacht.dzikr.transliteratie;
   document.getElementById('dzikr-betekenis').textContent = nacht.dzikr.betekenis;
   document.getElementById('dzikr-bron').textContent = `— ${nacht.dzikr.bron}`;
-=======
-  document.getElementById('dzikr-arabisch').textContent = nacht.dzikr.arabisch;
-  document.getElementById('dzikr-transliteratie').textContent = nacht.dzikr.transliteratie;
-  document.getElementById('dzikr-betekenis').textContent = nacht.dzikr.betekenis;
-  document.getElementById('dzikr-bron').textContent = `— ${nacht.dzikr.bron}`;
->>>>>>> 812bda81247735fac822c279c429ec19f6fdeff8
 
   document.getElementById('kaart').hidden = false;
   document.getElementById('deel-knoppen').hidden = false;
@@ -337,7 +330,7 @@ document.getElementById('btn-whatsapp').addEventListener('click', () => {
     `${nacht.vers.arabisch}\n` +
     `_${nacht.vers.vertaling}_\n\n` +
     `📜 *Hadith*\n${nacht.hadith.tekst}\n— ${nacht.hadith.bron}\n\n` +
-    `🤲 *Du\'a*\n${nacht.dua.arabisch}\n${nacht.dua.transliteratie}\n_${nacht.dua.betekenis}_\n— ${nacht.dua.bron}\n\n` +
+    `🤲 *Du'a*\n${nacht.dua.arabisch}\n${nacht.dua.transliteratie}\n_${nacht.dua.betekenis}_\n— ${nacht.dua.bron}\n\n` +
     `📿 *Dzikr / Istigfar*\n${nacht.dzikr.arabisch}\n${nacht.dzikr.transliteratie}\n_${nacht.dzikr.betekenis}_\n— ${nacht.dzikr.bron}\n\n` +
     `🕌 _Via Het Rechte Pad College Leerportaal_`;
 
