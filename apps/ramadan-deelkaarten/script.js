@@ -350,7 +350,7 @@ document.getElementById('btn-download').addEventListener('click', async () => {
     await document.fonts.ready;
     await document.fonts.load('400 40px Amiri');
     await document.fonts.load('700 40px Amiri');
-    const dataUrl = tekenKaartCanvas(nacht);
+    const dataUrl = await tekenKaartCanvas(nacht);
     const link = document.createElement('a');
     link.download = `ramadan-nacht-${nacht.nacht}.png`;
     link.href = dataUrl;
@@ -364,7 +364,7 @@ document.getElementById('btn-download').addEventListener('click', async () => {
 
 // ─── Canvas generatie ──────────────────────────────────────────────────────────
 
-function tekenKaartCanvas(nacht) {
+async function tekenKaartCanvas(nacht) {
   const W = 1080, H = 1920;
   const canvas = document.createElement('canvas');
   canvas.width = W;
@@ -495,10 +495,18 @@ function tekenKaartCanvas(nacht) {
   ctx.strokeStyle = `rgba(200,169,110,0.2)`;
   ctx.lineWidth = 1;
   ctx.beginPath(); ctx.moveTo(PAD, footerY - 20); ctx.lineTo(W - PAD, footerY - 20); ctx.stroke();
-  ctx.fillStyle = `rgb(255, 255, 255)`;
-  ctx.font = '400 26px "Noto Sans", sans-serif';
-  ctx.textAlign = 'center';
-  ctx.fillText('Het Rechte Pad College', W / 2, footerY);
+
+  const logo = await new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = reject;
+    img.src = 'images/HRPC-logo-white.png';
+  });
+  const logoH = 52;
+  const logoW = logo.naturalWidth * (logoH / logo.naturalHeight);
+  ctx.globalAlpha = 0.85;
+  ctx.drawImage(logo, W / 2 - logoW / 2, footerY - logoH + 8, logoW, logoH);
+  ctx.globalAlpha = 1;
 
   return canvas.toDataURL('image/png');
 }
