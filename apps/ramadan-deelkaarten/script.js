@@ -18,7 +18,7 @@ const NACHTEN = [
       arabisch: 'اللَّهُمَّ إِنَّكَ عُفُوٌّ كَرِيمٌ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي',
       transliteratie: "Allāhumma innaka ʿafuwwun karīmun tuḥibbul ʿafwa faʾfu ʿannī",
       betekenis: '"O Allah, U bent de Meest Vergevingsgezinde, en U houdt van vergeving; vergeef mij dus.’"',
-      bron: 'Tirmidhi'
+      bron: 'Tirmidzī'
     },
     dzikr: {
       arabisch: 'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ، سُبْحَانَ اللَّهِ الْعَظِيمِ',
@@ -30,27 +30,27 @@ const NACHTEN = [
   {
     nacht: 22,
     oneven: false,
-    thema: 'De Deuren van Tawbah',
+    thema: 'De Deuren van Tawbah (berouw)',
     vers: {
       arabisch: 'قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَى أَنفُسِهِمْ لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ ۚ إِنَّ اللَّهَ يَغْفِرُ الذُّنُوبَ جَمِيعًا ۚ إِنَّهُ هُوَ الْغَفُورُ الرَّحِيمُ',
       referentie: 'Az-Zumar 39:53',
-      vertaling: '"Zeg: O Mijn dienaren die buitensporig tegen zichzelf zijn geweest, wanhoop niet aan Allahs genade. Voorwaar, Allah vergeeft alle zonden. Voorwaar, Hij is de Vergevende, de Barmhartige."'
+      vertaling: '"Zeg: \'O Mijn dienaren die buitensporig zijn geweest tegenover julliezelf, wanhoopt niet aan de barmhartigheid van Allah. Voorwaar, Allah vergeeft de zonden tezamen. Hij is de Vergevende, de Barmhartige.\'"'
     },
     hadith: {
-      tekst: '"Elke zoon van Adam zondigt, en de besten van de zondaars zijn degenen die tawbah tonen."',
-      bron: 'Tirmidhi'
+      tekst: '"Elke mens maakt fouten en de besten onder degenen die fouten maken zijn degenen die berouw tonen."',
+      bron: 'Tirmidzī'
     },
     dua: {
       arabisch: 'رَبَّنَا ظَلَمْنَا أَنفُسَنَا وَإِن لَّمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ',
       transliteratie: "Rabbanā ẓalamnā anfusanā wa-in lam taghfir lanā wa-tarḥamnā la-nakūnanna minal-khāsirīn",
-      betekenis: '"Onze Heer, wij hebben onszelf onrecht aangedaan. Als U ons niet vergeeft en ons niet begenadigt, zullen wij zeker tot de verliezers behoren."',
+      betekenis: '"Onze Heer, wij hebben onszelf onrecht aangedaan en als U ons niet vergeeft en geen erbarmen met ons hebt, dan zullen wij zeker bij de verliezers behoren."',
       bron: 'Al-Aʿraf 7:23'
     },
     dzikr: {
       arabisch: 'أَسْتَغْفِرُ اللَّهَ الْعَظِيمَ الَّذِي لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ وَأَتُوبُ إِلَيْهِ',
       transliteratie: "Astaghfirullāhal-ʿaẓīmal-ladhī lā ilāha illā huwal-Ḥayyul-Qayyūm wa-atūbu ilayh",
-      betekenis: '"Ik vraag Allah de Geweldige om vergiffenis — er is geen god dan Hij, de Levende, de Zelfbestaande — en ik keer mij in berouw tot Hem."',
-      bron: 'Tirmidhi'
+      betekenis: '"Ik vraag vergiffenis aan Allah, de Almachtige  — er is geen god dan Hij, de Levende, de Zelfbestaande — en ik toon berouw aan Hem."',
+      bron: 'Tirmidzī'
     }
   },
   {
@@ -70,7 +70,7 @@ const NACHTEN = [
       arabisch: 'اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي',
       transliteratie: "Allāhumma innaka ʿafuwwun tuḥibbu l-ʿafwa fa-ʿfu ʿannī",
       betekenis: '"O Allah, U bent de Vergevende, U houdt van vergeven, vergeef mij."',
-      bron: 'Tirmidhi'
+      bron: 'Tirmidzī'
     },
     dzikr: {
       arabisch: 'لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ',
@@ -122,7 +122,7 @@ const NACHTEN = [
       arabisch: 'اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي',
       transliteratie: "Allāhumma innaka ʿafuwwun tuḥibbu l-ʿafwa fa-ʿfu ʿannī",
       betekenis: '"O Allah, U bent de Vergevende, U houdt van vergeven, vergeef mij."',
-      bron: 'Tirmidhi'
+      bron: 'Tirmidzī'
     },
     dzikr: {
       arabisch: 'سُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ وَلَا إِلَهَ إِلَّا اللَّهُ وَاللَّهُ أَكْبَرُ',
@@ -174,13 +174,13 @@ const NACHTEN = [
       arabisch: 'اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي',
       transliteratie: "Allāhumma innaka ʿafuwwun tuḥibbu l-ʿafwa fa-ʿfu ʿannī",
       betekenis: '"O Allah, U bent de Vergevende, U houdt van vergeven, vergeef mij."',
-      bron: 'Tirmidhi'
+      bron: 'Tirmidzī'
     },
     dzikr: {
       arabisch: 'لَا إِلَهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ',
       transliteratie: "Lā ilāha illā anta subḥānaka innī kuntu minaẓ-ẓālimīn",
       betekenis: '"Er is geen god dan U, glorie zij U, voorwaar ik behoorde tot de onrechtvaardigen." — Wie dit zegt: Allah verlicht zijn beproeving.',
-      bron: 'Al-Anbiya 21:87 | Tirmidhi'
+      bron: 'Al-Anbiya 21:87 | Tirmidzī'
     }
   },
   {
@@ -226,7 +226,7 @@ const NACHTEN = [
       arabisch: 'اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي',
       transliteratie: "Allāhumma innaka ʿafuwwun tuḥibbu l-ʿafwa fa-ʿfu ʿannī",
       betekenis: '"O Allah, U bent de Vergevende, U houdt van vergeven, vergeef mij."',
-      bron: 'Tirmidhi'
+      bron: 'Tirmidzī'
     },
     dzikr: {
       arabisch: 'أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ',
