@@ -446,6 +446,7 @@ async function tekenKaartCanvas(nacht) {
 
   // — Verse sectie
   y = tekenSectieLabel(ctx, '📖  Koran', y, PAD, GOUD);
+  y += 16;
   y = tekenArabischTekst(ctx, nacht.vers.arabisch, y, W, PAD, BREED);
   y += 8;
   y = tekenBron(ctx, nacht.vers.referentie, y, PAD, BRON);
@@ -468,6 +469,7 @@ async function tekenKaartCanvas(nacht) {
 
   // — Duāʾ sectie
   y = tekenSectieLabel(ctx, "🤲🏽  Duāʾ", y, PAD, GOUD);
+  y += 16;
   y = tekenArabischTekst(ctx, nacht.dua.arabisch, y, W, PAD, BREED);
   y += 6;
   y = tekenWrapTekst(ctx, nacht.dua.transliteratie, y, PAD, MUTED, `italic 25px "Noto Sans", sans-serif`, BREED, 38);
@@ -482,6 +484,7 @@ async function tekenKaartCanvas(nacht) {
 
   // — Dzikr sectie
   y = tekenSectieLabel(ctx, '📿  Dzikr / Istighfār', y, PAD, GOUD);
+  y += 16;
   y = tekenArabischTekst(ctx, nacht.dzikr.arabisch, y, W, PAD, BREED);
   y += 6;
   y = tekenWrapTekst(ctx, nacht.dzikr.transliteratie, y, PAD, MUTED, `italic 25px "Noto Sans", sans-serif`, BREED, 38);
