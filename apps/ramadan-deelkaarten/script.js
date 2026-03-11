@@ -56,15 +56,15 @@ const NACHTEN = [
   {
     nacht: 23,
     oneven: true,
-    thema: 'Zoek de Nacht der Kracht',
+    thema: 'Zoek de Nacht van Qadr',
     vers: {
-      arabisch: 'إِنَّا أَنزَلْنَاهُ فِي لَيْلَةٍ مُّبَارَكَةٍ ۚ إِنَّا كُنَّا مُنذِرِينَ ۝ فِيهَا يُفْرَقُ كُلُّ أَمْرٍ حَكِيمٍ',
-      referentie: 'Ad-Dukhan 44:3-4',
-      vertaling: '"Voorwaar, Wij zonden hem (de Koran) neer in een gezegende nacht. Voorwaar, Wij zijn de Waarschuwers. Daarin wordt elke wijze zaak beslecht."'
+      arabisch: 'اِنَّاۤ اَنْزَلْنٰهُ فِیْ لَیْلَةِ الْقَدْرِؕ',
+      referentie: 'al-Qadr 97:1',
+      vertaling: '“Voorwaar, Wij hebben het (de Koran) neergezonden in de Nacht van Qadr."'
     },
     hadith: {
       tekst: '"Zoek Laylatul Qadr in de oneven nachten van de laatste tien dagen van Ramadan."',
-      bron: 'Bukhari & Moeslim'
+      bron: 'Sahih Bukhari & Sahih Muslim'
     },
     dua: {
       arabisch: 'اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي',
@@ -76,7 +76,7 @@ const NACHTEN = [
       arabisch: 'لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ',
       transliteratie: "Lā ilāha illallāhu waḥdahū lā sharīka lah, lahul-mulku wa-lahul-ḥamdu wa-huwa ʿalā kulli shay'in qadīr",
       betekenis: '"Er is geen god dan Allah, alleen, zonder deelgenoot. Van Hem is de heerschappij en aan Hem komt alle lof toe, en Hij heeft macht over alle zaken."',
-      bron: 'Bukhari & Moeslim'
+      bron: 'Sahih Bukhari & Sahih Muslim'
     }
   },
   {
@@ -90,7 +90,7 @@ const NACHTEN = [
     },
     hadith: {
       tekst: '"Wie in Ramadan staat (in nachtgebed) vanuit geloof en met de verwachting van beloning, zijn eerder begane zonden worden hem vergeven."',
-      bron: 'Bukhari & Moeslim'
+      bron: 'Sahih Bukhari & Sahih Muslim'
     },
     dua: {
       arabisch: 'رَبِّ اجْعَلْنِي مُقِيمَ الصَّلَاةِ وَمِن ذُرِّيَّتِي ۚ رَبَّنَا وَتَقَبَّلْ دُعَاءِ',
@@ -102,13 +102,13 @@ const NACHTEN = [
       arabisch: 'اللَّهُ أَكْبَرُ كَبِيرًا، وَالْحَمْدُ لِلَّهِ كَثِيرًا، وَسُبْحَانَ اللَّهِ بُكْرَةً وَأَصِيلًا',
       transliteratie: "Allāhu akbaru kabīrā, wal-ḥamdulillāhi kathīrā, wa-subḥānallāhi bukratan wa-aṣīlā",
       betekenis: '"Allah is de Grootste — en alle uitbundige lof komt Allah toe — en glorie zij Allah, \'s morgens vroeg en \'s avonds laat."',
-      bron: 'Moeslim'
+      bron: 'Sahih Muslim'
     }
   },
   {
     nacht: 25,
     oneven: true,
-    thema: 'Nacht van Kracht en Besluiten',
+    thema: 'Nacht van Qadr en Besluiten',
     vers: {
       arabisch: 'وَمِنَ اللَّيْلِ فَتَهَجَّدْ بِهِ نَافِلَةً لَّكَ عَسَى أَن يَبْعَثَكَ رَبُّكَ مَقَامًا مَّحْمُودًا',
       referentie: 'Al-Isra 17:79',
@@ -116,7 +116,7 @@ const NACHTEN = [
     },
     hadith: {
       tekst: '"Op de ochtend na Laylatul Qadr gaat de zon op wit, zonder (stralende) stralen, als een schijf."',
-      bron: 'Moeslim'
+      bron: 'Sahih Muslim'
     },
     dua: {
       arabisch: 'اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي',
@@ -128,7 +128,7 @@ const NACHTEN = [
       arabisch: 'سُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ وَلَا إِلَهَ إِلَّا اللَّهُ وَاللَّهُ أَكْبَرُ',
       transliteratie: "Subḥānallāhi wal-ḥamdulillāhi wa-lā ilāha illallāhu wallāhu akbar",
       betekenis: '"Glorie zij Allah, en alle lof zij Allah, en er is geen god dan Allah, en Allah is de Grootste."',
-      bron: 'Moeslim'
+      bron: 'Sahih Muslim'
     }
   },
   {
@@ -154,7 +154,7 @@ const NACHTEN = [
       arabisch: 'الْحَمْدُ لِلَّهِ عَلَى كُلِّ حَالٍ',
       transliteratie: "Al-ḥamdulillāhi ʿalā kulli ḥāl",
       betekenis: '"Alle lof zij Allah in elke omstandigheid."',
-      bron: 'Ibn Maja'
+      bron: 'Ibn Majah'
     }
   },
   {
@@ -168,7 +168,7 @@ const NACHTEN = [
     },
     hadith: {
       tekst: '"Ubayy ibn Kaʿb رضي الله عنه zei: \'Bij Allah, ik ken de nacht (van Qadr). Het is de zevenentwinstigste nacht.\' — en noemde haar tekenen."',
-      bron: 'Moeslim'
+      bron: 'Sahih Muslim'
     },
     dua: {
       arabisch: 'اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي',
@@ -194,7 +194,7 @@ const NACHTEN = [
     },
     hadith: {
       tekst: '"Jibril bezoekt mij in elke nacht van Ramadan en wij reciteren de Koran aan elkaar."',
-      bron: 'Bukhari'
+      bron: 'Sahih Bukhari'
     },
     dua: {
       arabisch: 'رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ',
@@ -220,7 +220,7 @@ const NACHTEN = [
     },
     hadith: {
       tekst: '"Wie Laylatul Qadr beleeft vanuit geloof en met hoop op beloning, zijn eerder begane zonden worden hem vergeven."',
-      bron: 'Bukhari'
+      bron: 'Sahih Bukhari'
     },
     dua: {
       arabisch: 'اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي',
@@ -232,7 +232,7 @@ const NACHTEN = [
       arabisch: 'أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ',
       transliteratie: "Astaghfirullāha wa-atūbu ilayh",
       betekenis: '"Ik vraag Allah om vergiffenis en ik keer mij in berouw tot Hem." — 100 maal per dag.',
-      bron: 'Bukhari & Moeslim'
+      bron: 'Sahih Bukhari & Sahih Muslim'
     }
   },
   {
