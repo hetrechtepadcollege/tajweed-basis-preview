@@ -148,7 +148,7 @@ const NACHTEN = [
       arabisch: 'اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ',
       transliteratie: "Allāhumma aʿinnī ʿalā dzikrika wa-shukrika wa-ḥusni ʿibādatik",
       betekenis: '"O Allah, help mij U te gedenken, U dankbaar te zijn en U te aanbidden op de beste wijze."',
-      bron: 'Abu Dawud & Nasai'
+      bron: 'Abu Dawud & Nasa'i'
     },
     dzikr: {
       arabisch: 'الْحَمْدُ لِلَّهِ عَلَى كُلِّ حَالٍ',
@@ -292,7 +292,7 @@ function renderKaart(index) {
 
   document.getElementById('nacht-nummer').textContent = `Nacht ${nacht.nacht}`;
   document.getElementById('nacht-thema').textContent = nacht.thema;
-  document.getElementById('qadr-badge').hidden = false;
+  document.getElementById('qadr-badge').hidden = !nacht.oneven;
 
   document.getElementById('vers-arabisch').textContent = nacht.vers.arabisch;
   document.getElementById('vers-referentie').textContent = nacht.vers.referentie;
