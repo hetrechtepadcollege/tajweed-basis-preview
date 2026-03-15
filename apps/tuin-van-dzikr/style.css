@@ -473,24 +473,34 @@ body::before {
     align-items: center;
     justify-content: center;
     gap: .5rem;
-    padding: .75rem 1.5rem;
+    padding: .85rem 1.6rem;
     border: none;
     border-radius: 50px;
     font-family: 'Noto Sans', sans-serif;
-    font-weight: 600;
-    font-size: .92rem;
+    font-weight: 700;
+    font-size: .95rem;
     color: #081a33;
     cursor: pointer;
-    transition: transform .15s, box-shadow .25s;
+    transition: transform .1s, box-shadow .15s;
     overflow: hidden;
-    min-height: 48px;
-    min-width: 48px;
+    min-height: 52px;
+    min-width: 52px;
     -webkit-tap-highlight-color: transparent;
     user-select: none;
+    touch-action: manipulation;   /* voorkomt dubbeltik-zoom op mobiel */
+    -webkit-touch-callout: none;
+    /* 3D-effect: bovenste helft lichter, border-bottom als "diepte" */
+    border-bottom: 4px solid rgba(0,0,0,.25);
+    letter-spacing: .02em;
+}
+
+.dzikr-btn:hover {
+    transform: translateY(-2px);
 }
 
 .dzikr-btn:active {
-    transform: scale(.95);
+    transform: translateY(2px);
+    border-bottom-width: 1px;
 }
 
 .dzikr-btn::after {
@@ -511,27 +521,36 @@ body::before {
 }
 
 .btn-subhanallah {
-    background: linear-gradient(135deg, #f5a5b8, #e88ca5);
-    box-shadow: 0 4px 14px rgba(232, 140, 165, .3);
+    background: linear-gradient(180deg, #f9b8c8 0%, #e88ca5 100%);
+    box-shadow: 0 6px 16px rgba(232, 140, 165, .45);
 }
 .btn-subhanallah:hover {
-    box-shadow: 0 6px 20px rgba(232, 140, 165, .45);
+    box-shadow: 0 8px 22px rgba(232, 140, 165, .55);
+}
+.btn-subhanallah:active {
+    background: linear-gradient(180deg, #e88ca5 0%, #d4749a 100%);
 }
 
 .btn-alhamdulillah {
-    background: linear-gradient(135deg, #7dcc7d, #5cb85c);
-    box-shadow: 0 4px 14px rgba(92, 184, 92, .3);
+    background: linear-gradient(180deg, #8ed88e 0%, #5cb85c 100%);
+    box-shadow: 0 6px 16px rgba(92, 184, 92, .45);
 }
 .btn-alhamdulillah:hover {
-    box-shadow: 0 6px 20px rgba(92, 184, 92, .45);
+    box-shadow: 0 8px 22px rgba(92, 184, 92, .55);
+}
+.btn-alhamdulillah:active {
+    background: linear-gradient(180deg, #5cb85c 0%, #47a347 100%);
 }
 
 .btn-allahuakbar {
-    background: linear-gradient(135deg, #f7e588, #f5d76e);
-    box-shadow: 0 4px 14px rgba(245, 215, 110, .3);
+    background: linear-gradient(180deg, #faee9a 0%, #f5d76e 100%);
+    box-shadow: 0 6px 16px rgba(245, 215, 110, .45);
 }
 .btn-allahuakbar:hover {
-    box-shadow: 0 6px 20px rgba(245, 215, 110, .45);
+    box-shadow: 0 8px 22px rgba(245, 215, 110, .55);
+}
+.btn-allahuakbar:active {
+    background: linear-gradient(180deg, #f5d76e 0%, #e8c44a 100%);
 }
 
 /* Counter badge */
