@@ -81,9 +81,9 @@ body::before {
 }
 
 .header-logo {
-    width: 72px;
-    height: auto;
-    margin-bottom: .75rem;
+    height: 5rem;
+    width: auto;
+    margin-bottom: 1rem;
     filter: drop-shadow(0 2px 8px rgba(212, 175, 55, .35));
 }
 
