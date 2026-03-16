@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="nl" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/icons/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+    <link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="manifest" href="/icons/site.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://hetrechtepadcollege.goatcounter.com;">
+    <title>De Tuin van Dzikr | Het Rechte Pad College</title>
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://leer.hetrechtepadcollege.nl/apps/tuin-van-dzikr/">
+    <meta property="og:title" content="De Tuin van Dzikr — Laat je tuin groeien met dzikr">
+    <meta property="og:description" content="Een interactieve dzikr-ervaring: leer de betekenis van dzikr terwijl je tuin groeit.">
+    <meta property="og:image" content="https://leer.hetrechtepadcollege.nl/images/share-banner.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="De Tuin van Dzikr — Laat je tuin groeien met dzikr">
+    <meta property="twitter:description" content="Een interactieve dzikr-ervaring: leer de betekenis van dzikr terwijl je tuin groeit.">
+    <meta property="twitter:image" content="https://leer.hetrechtepadcollege.nl/images/share-banner.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Noto+Naskh+Arabic:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+    <!-- ========== Header ========== -->
+    <header class="app-header">
+        <img src="../../images/HRPC-logo.png" alt="Het Rechte Pad College" class="header-logo">
+        <h1 class="header-title">De Tuin van Dzikr</h1>
+        <p class="header-arabic" dir="rtl" lang="ar">ذِكْر</p>
+        <p class="header-subtitle">Je daden zijn zaden. Zaai vandaag, oogst later.</p>
+    </header>
+
+    <!-- ========== Views ========== -->
+    <main class="app-views">
+
+        <!-- ===== VIEW: Tuin ===== -->
+        <section class="view view-tuin active" id="viewTuin" role="tabpanel" aria-labelledby="tabTuin">
+
+            <!-- Intro -->
+            <section class="intro-section">
+                <p><strong>Dzikr</strong> betekent <em>herinnering</em> &mdash; het gedenken van Allah door Zijn namen te noemen en Hem te prijzen.
+                    De Profeet &#xFDFA; zei:</p>
+                <p class="hadith-ref">"Het verschil tussen degene die zijn Heer gedenkt en degene die dat niet doet,
+                    is als het verschil tussen de levende en de dode." <br> (Ṣaḥīḥ al-Bukhārī)</p>
+                <p>In deze tuin ontdek je vier vormen van dzikr. Laat je tuin verder groeien en bloeien.</p>
+            </section>
+
+            <!-- Garden -->
+            <div class="garden-wrap" aria-label="Dzikr-tuin visualisatie">
+                <div class="garden-canvas" id="gardenCanvas"></div>
+                <div class="garden-particles" id="gardenParticles"></div>
+                <div class="garden-zone-labels">
+                    <div class="zone-label" dir="rtl" lang="ar">سُبْحَانَ اللّٰهِ</div>
+                    <div class="zone-label" dir="rtl" lang="ar">اَلْحَمْدُ لِلّٰهِ</div>
+                    <div class="zone-label" dir="rtl" lang="ar">اَللّٰهُ اَكْبَرُ</div>
+                    <div class="zone-label" dir="rtl" lang="ar">لَا إِلٰهَ إِلَّا اللّٰهُ</div>
+                </div>
+            </div>
+
+            <!-- Dzikr cards -->
+            <div class="dzikr-cards">
+
+                <article class="dzikr-card card-subhanallah">
+                    <p class="dzikr-arabic" dir="rtl" lang="ar">سُبْحَانَ اللّٰهِ</p>
+                    <p class="dzikr-translit">SubḥānAllāh</p>
+                    <p class="dzikr-meaning">Glorie zij Allah / Heilig is Allah &mdash; Allah is vrij van elke onvolkomenheid</p>
+                    <p class="dzikr-explain">Wanneer je SubḥānAllāh zegt, prijs je Allah en erken je dat Hij perfect is,
+                        vrij van elk gebrek. Het is een van de meest geliefde woorden bij Allah.</p>
+                    <blockquote class="dzikr-hadith">"Twee woorden zijn licht op de tong, zwaar op de weegschaal en geliefd bij de Meest Barmhartige:
+                        'SubḥānAllāhi wa biḥamdihī, SubḥānAllāhi al-ʿAẓīm.'" <span>(Ṣaḥīḥ al-Bukhārī &amp; Muslim)</span></blockquote>
+                    <div class="dzikr-action">
+                        <button class="dzikr-btn btn-subhanallah" data-dzikr="subhanallah"
+                                aria-label="Zeg SubḥānAllāh en plant een bloem">
+                            Plant een bloem
+                        </button>
+                        <span class="dzikr-count" id="countSubhanallah">0</span>
+                    </div>
+                </article>
+
+                <article class="dzikr-card card-alhamdulillah">
+                    <p class="dzikr-arabic" dir="rtl" lang="ar">اَلْحَمْدُ لِلّٰهِ</p>
+                    <p class="dzikr-translit">Alḥamdulillāh</p>
+                    <p class="dzikr-meaning">Alle lof komt Allah toe</p>
+                    <p class="dzikr-explain">Met Alḥamdulillāh dank je Allah voor alles &mdash; voor het goede en zelfs
+                        voor beproevingen, want Allah weet wat het beste voor ons is. Het is het eerste wat de bewoners
+                        van het Paradijs zeggen.</p>
+                    <blockquote class="dzikr-hadith">"Allah is tevreden met een dienaar die een hap eet en Hem daarvoor prijst, of een slok drinkt en Hem daarvoor prijst." <span>(Ṣaḥīḥ Muslim)</span></blockquote>
+                    <div class="dzikr-action">
+                        <button class="dzikr-btn btn-alhamdulillah" data-dzikr="alhamdulillah"
+                                aria-label="Zeg Alḥamdulillāh en plant een boom">
+                            Plant een boom
+                        </button>
+                        <span class="dzikr-count" id="countAlhamdulillah">0</span>
+                    </div>
+                </article>
+
+                <article class="dzikr-card card-allahuakbar">
+                    <p class="dzikr-arabic" dir="rtl" lang="ar">اَللّٰهُ اَكْبَرُ</p>
+                    <p class="dzikr-translit">Allāhu Akbar</p>
+                    <p class="dzikr-meaning">Allah is de Grootste</p>
+                    <p class="dzikr-explain">Allāhu Akbar herinnert ons eraan dat Allah groter is dan alles &mdash;
+                        groter dan onze zorgen, onze problemen, en alles in deze wereld. Het is de opening van elk gebed.</p>
+                    <blockquote class="dzikr-hadith">"Zeg na elk gebed: SubḥānAllāh, Alḥamdulillāh en Allāhu Akbar elk drie&euml;ndertig keer." <span>(Ṣaḥīḥ Muslim)</span></blockquote>
+                    <div class="dzikr-action">
+                        <button class="dzikr-btn btn-allahuakbar" data-dzikr="allahuakbar"
+                                aria-label="Zeg Allāhu Akbar en laat een lichtbloesem verschijnen">
+                            Laat licht bloeien
+                        </button>
+                        <span class="dzikr-count" id="countAllahuakbar">0</span>
+                    </div>
+                </article>
+
+                <article class="dzikr-card card-lailahaillallah">
+                    <p class="dzikr-arabic" dir="rtl" lang="ar">لَا إِلٰهَ إِلَّا اللّٰهُ</p>
+                    <p class="dzikr-translit">Lā ilāha illā Allāh</p>
+                    <p class="dzikr-meaning">Er is geen god behalve Allah</p>
+                    <p class="dzikr-explain">Lā ilāha illā Allāh is de shahādah, de getuigenis van tawḥīd &mdash;
+                        dat Allah één is. Het is de kern van de islam en een sleutel tot het Paradijs.
+                        Wie deze woorden met oprechtheid uitspreekt, verklaart dat alleen Allah het recht heeft om aanbeden te worden.</p>
+                    <blockquote class="dzikr-hadith">"Het zeggen van Lā ilāha illā Allāh is een van de zwaarste
+                        daden op de weegschaal op de Dag des Oordeels." <span>(Tirmizī)</span></blockquote>
+                    <div class="dzikr-action">
+                        <button class="dzikr-btn btn-lailahaillallah" data-dzikr="lailahaillallah"
+                                aria-label="Zeg Lā ilāha illā Allāh en laat een juweel schitteren">
+                            Laat een juweel schitteren
+                        </button>
+                        <span class="dzikr-count" id="countLailahaillallah">0</span>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Educational section -->
+            <section class="edu-section">
+                <h2 class="edu-title">Wist je dat?</h2>
+                <div class="edu-facts" id="eduFacts">
+                    <div class="edu-fact">
+                        <span class="fact-icon" aria-hidden="true">&#9733;</span>
+                        SubḥānAllāh, Alḥamdulillāh en Allāhu Akbar bomen planten in het Paradijs.
+                        (Tirmizī)
+                    </div>
+                    <div class="edu-fact">
+                        <span class="fact-icon" aria-hidden="true">&#9733;</span>
+                        De Profeet &#xFDFA; zei dat het zeggen van SubḥānAllāh (33&times;), Alḥamdulillāh (33&times;),
+                        en Allāhu Akbar (34&times;) na elk gebed een enorme beloning heeft.
+                    </div>
+                    <div class="edu-fact">
+                        <span class="fact-icon" aria-hidden="true">&#9733;</span>
+                        De woorden SubḥānAllāh, Alḥamdulillāh, Lā ilāha illā Allāh en Allāhu Akbar behoren tot de meest geliefde woorden bij Allah.
+                        (Muslim)
+                    </div>
+                    <div class="edu-fact">
+                        <span class="fact-icon" aria-hidden="true">&#9733;</span>
+                        Dzikr brengt rust in het hart. Allah zegt in de Koran:
+                        <em>"Weet wel: door het gedenken van Allah komen de harten tot rust."</em>
+                        (Koran, 13:28)
+                    </div>
+                    <div class="edu-fact">
+                        <span class="fact-icon" aria-hidden="true">&#9733;</span>
+                        Dzikr een bescherming is tegen Shayṭān en het hart levend houdt. (Tirmizī)
+                    </div>
+                    <div class="edu-fact">
+                        <span class="fact-icon" aria-hidden="true">&#9733;</span>
+                        Je de dzikr ook kunt tellen met de vingertoppen, zij zullen worden ondervraagd en laten spreken.
+                        (Abū Dāwūd &amp; Tirmizī)
+                    </div>
+                    <div class="edu-fact">
+                        <span class="fact-icon" aria-hidden="true">&#9733;</span>
+                        Het zeggen van Lā ilāha illā Allāh een van de zwaarste daden op de weegschaal op de Dag des Oordeels is.
+                        (Tirmizī)
+                    </div>
+                    <div class="edu-fact">
+                        <span class="fact-icon" aria-hidden="true">&#9733;</span>
+                        De Profeet &#xFDFA; zei dat de beste woorden die hij en de profeten vóór hem hebben gezegd zijn: "Lā ilāha illā Allāh."
+                        (Tirmizī)
+                    </div>
+                    <div class="edu-fact">
+                        <span class="fact-icon" aria-hidden="true">&#9733;</span>
+                        Het zeggen van SubḥānAllāhi wa biḥamdihī 100&times; zonden kan uitwissen.
+                        (Bukhārī &amp; Muslim)
+                    </div>
+                    <div class="edu-fact">
+                        <span class="fact-icon" aria-hidden="true">&#9733;</span>
+                        Dzikr beter kan zijn dan goud en zilver uitdelen.
+                        (Tirmizī)
+                    </div>
+                    <div class="edu-fact">
+                        <span class="fact-icon" aria-hidden="true">&#9733;</span>
+                        Dzikr het hart levend houdt, net als water voor de aarde.
+                        (Bukhārī)
+                    </div>
+                    <div class="edu-fact">
+                        <span class="fact-icon" aria-hidden="true">&#9733;</span>
+                        Elke goede dzikr zwaar weegt op de weegschaal van daden.
+                        (Bukhārī &amp; Muslim)
+                    </div>
+                    <div class="edu-fact">
+                        <span class="fact-icon" aria-hidden="true">&#9733;</span>
+                        Dzikr een van de makkelijkste maar meest beloonde daden is.
+                        (Muslim)
+                    </div>
+                </div>
+            </section>
+
+        </section>
+
+        <!-- ===== VIEW: Tasbih ===== -->
+        <section class="view view-tasbih" id="viewTasbih" role="tabpanel" aria-labelledby="tabTasbih">
+
+            <div class="tasbih-container">
+
+                <!-- Dzikr selector -->
+                <div class="tasbih-selector">
+                    <button class="tasbih-type-btn active" data-type="subhanallah">SubḥānAllāh</button>
+                    <button class="tasbih-type-btn" data-type="alhamdulillah">Alḥamdulillāh</button>
+                    <button class="tasbih-type-btn" data-type="allahuakbar">Allāhu Akbar</button>
+                    <button class="tasbih-type-btn" data-type="lailahaillallah">Lā ilāha illā Allāh</button>
+                </div>
+
+                <!-- Bead circle -->
+                <div class="tasbih-circle-wrap">
+                    <div class="tasbih-circle" id="tasbihCircle" role="group" aria-label="Tasbih kralen">
+                        <!-- 33 beads generated by JS -->
+                    </div>
+                    <div class="tasbih-center">
+                        <p class="tasbih-center-arabic" id="tasbihArabic" dir="rtl" lang="ar">سُبْحَانَ اللّٰهِ</p>
+                        <p class="tasbih-center-count" id="tasbihCount">0 / 33</p>
+                        <p class="tasbih-center-rounds" id="tasbihRounds"></p>
+                    </div>
+                </div>
+
+                <!-- Tap area -->
+                <button class="tasbih-tap-btn" id="tasbihTapBtn" aria-label="Volgende kraal">
+                    Tap
+                </button>
+
+                <!-- Controls -->
+                <div class="tasbih-controls">
+                    <button class="tasbih-control-btn" id="tasbihResetBtn" aria-label="Tasbih resetten">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 1 3.2-6.8"/><path d="M3 2v5h5"/></svg>
+                        Reset
+                    </button>
+                    <label class="tasbih-control-toggle">
+                        <input type="checkbox" id="tasbihSoundToggle">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                        Geluid
+                    </label>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ===== VIEW: Patroon ===== -->
+        <section class="view view-patroon" id="viewPatroon" role="tabpanel" aria-labelledby="tabPatroon">
+
+            <div class="patroon-container">
+                <div class="patroon-canvas-wrap">
+                    <canvas id="patroonCanvas" aria-label="Islamitisch geometrisch patroon dat groeit met je dzikr">
+                        Je dzikr-patroon wordt hier weergegeven.
+                    </canvas>
+                </div>
+                <div class="patroon-info">
+                    <p class="patroon-level" id="patroonLevel">Niveau 0</p>
+                    <p class="patroon-desc" id="patroonDesc">Begin met dzikr om je patroon te laten groeien</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ===== VIEW: Stats ===== -->
+        <section class="view view-stats" id="viewStats" role="tabpanel" aria-labelledby="tabStats">
+
+            <div class="stats-container">
+
+                <!-- Streak -->
+                <div class="stats-streak-card">
+                    <div class="stats-streak-number" id="statsStreak">0</div>
+                    <div class="stats-streak-label">dagen streak</div>
+                    <div class="stats-streak-fire" id="statsStreakFire" aria-hidden="true"></div>
+                </div>
+
+                <!-- Today -->
+                <div class="stats-today">
+                    <h3 class="stats-section-title">Vandaag</h3>
+                    <div class="stats-today-grid">
+                        <div class="stats-today-item">
+                            <span class="stats-today-count" id="statsTodaySubhanallah">0</span>
+                            <span class="stats-today-label">SubḥānAllāh</span>
+                        </div>
+                        <div class="stats-today-item">
+                            <span class="stats-today-count" id="statsTodayAlhamdulillah">0</span>
+                            <span class="stats-today-label">Alḥamdulillāh</span>
+                        </div>
+                        <div class="stats-today-item">
+                            <span class="stats-today-count" id="statsTodayAllahuakbar">0</span>
+                            <span class="stats-today-label">Allāhu Akbar</span>
+                        </div>
+                        <div class="stats-today-item">
+                            <span class="stats-today-count" id="statsTodayLailahaillallah">0</span>
+                            <span class="stats-today-label">Lā ilāha illā Allāh</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Heatmap -->
+                <div class="stats-heatmap-section">
+                    <h3 class="stats-section-title">Activiteit</h3>
+                    <div class="stats-heatmap-months" id="statsHeatmapMonths"></div>
+                    <div class="stats-heatmap" id="statsHeatmap"></div>
+                    <div class="stats-heatmap-legend">
+                        <span class="stats-heatmap-legend-label">Minder</span>
+                        <span class="stats-heatmap-cell" data-level="0"></span>
+                        <span class="stats-heatmap-cell" data-level="1"></span>
+                        <span class="stats-heatmap-cell" data-level="2"></span>
+                        <span class="stats-heatmap-cell" data-level="3"></span>
+                        <span class="stats-heatmap-cell" data-level="4"></span>
+                        <span class="stats-heatmap-legend-label">Meer</span>
+                    </div>
+                </div>
+
+                <!-- All-time totals -->
+                <div class="stats-totals">
+                    <h3 class="stats-section-title">Totaal (alle tijd)</h3>
+                    <div class="stats-totals-grid">
+                        <div class="stats-total-item">
+                            <span class="stats-total-count" id="statsTotalSubhanallah">0</span>
+                            <span class="stats-total-label">SubḥānAllāh</span>
+                        </div>
+                        <div class="stats-total-item">
+                            <span class="stats-total-count" id="statsTotalAlhamdulillah">0</span>
+                            <span class="stats-total-label">Alḥamdulillāh</span>
+                        </div>
+                        <div class="stats-total-item">
+                            <span class="stats-total-count" id="statsTotalAllahuakbar">0</span>
+                            <span class="stats-total-label">Allāhu Akbar</span>
+                        </div>
+                        <div class="stats-total-item">
+                            <span class="stats-total-count" id="statsTotalLailahaillallah">0</span>
+                            <span class="stats-total-label">Lā ilāha illā Allāh</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Records -->
+                <div class="stats-records">
+                    <h3 class="stats-section-title">Records</h3>
+                    <div class="stats-records-grid">
+                        <div class="stats-record-item">
+                            <span class="stats-record-value" id="statsRecordBestDay">0</span>
+                            <span class="stats-record-label">Beste dag</span>
+                        </div>
+                        <div class="stats-record-item">
+                            <span class="stats-record-value" id="statsRecordLongestStreak">0</span>
+                            <span class="stats-record-label">Langste streak</span>
+                        </div>
+                        <div class="stats-record-item">
+                            <span class="stats-record-value" id="statsRecordWeekTotal">0</span>
+                            <span class="stats-record-label">Deze week</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reset -->
+                <div class="stats-reset-wrap">
+                    <button class="reset-btn" id="resetBtn">Alle data resetten</button>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ========== Tab bar ========== -->
+    <nav class="tab-bar" role="tablist" aria-label="Navigatie">
+        <button class="tab active" id="tabTuin" data-view="tuin" role="tab" aria-selected="true" aria-controls="viewTuin">
+            <span class="tab-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4-3-8-6-8-11a8 8 0 0 1 16 0c0 5-4 8-8 11z"/><circle cx="12" cy="11" r="3"/></svg>
+            </span>
+            <span class="tab-label">Tuin</span>
+        </button>
+        <button class="tab" id="tabTasbih" data-view="tasbih" role="tab" aria-selected="false" aria-controls="viewTasbih">
+            <span class="tab-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="5" r="1.5" fill="currentColor"/><circle cx="17" cy="8" r="1.5" fill="currentColor"/><circle cx="17" cy="14" r="1.5" fill="currentColor"/><circle cx="12" cy="19" r="1.5" fill="currentColor"/><circle cx="7" cy="14" r="1.5" fill="currentColor"/><circle cx="7" cy="8" r="1.5" fill="currentColor"/></svg>
+            </span>
+            <span class="tab-label">Tasbih</span>
+        </button>
+        <button class="tab" id="tabPatroon" data-view="patroon" role="tab" aria-selected="false" aria-controls="viewPatroon">
+            <span class="tab-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+            </span>
+            <span class="tab-label">Patroon</span>
+        </button>
+        <button class="tab" id="tabStats" data-view="stats" role="tab" aria-selected="false" aria-controls="viewStats">
+            <span class="tab-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg>
+            </span>
+            <span class="tab-label">Stats</span>
+        </button>
+    </nav>
+
+    <!-- ========== Footer (inside tuin view scroll) ========== -->
+
+</div><!-- .app-shell -->
+
+<!-- ========== JavaScript ========== -->
+<script src="script.js"></script>
+
+<!-- ========== Analytics ========== -->
+<script data-goatcounter="https://hetrechtepadcollege.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"
+        integrity="sha384-DGiREytotlUiLflu8vLo0vvfxKWn36pKPT1ZBhh3R+3vhwrS/4p3H9eys9Zr2bPQ"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
