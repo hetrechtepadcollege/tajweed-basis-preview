@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/icons/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+    <link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="manifest" href="/icons/site.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self' https://hetrechtepadcollege.goatcounter.com;">
+    <title>Kennisquiz ʿEid al-Fiṭr</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- SRI hash must be updated if GoatCounter updates count.js -->
+    <script data-goatcounter="https://hetrechtepadcollege.goatcounter.com/count"
+            async src="https://gc.zgo.at/count.js"
+            integrity="sha384-DGiREytotlUiLflu8vLo0vvfxKWn36pKPT1ZBhh3R+3vhwrS/4p3H9eys9Zr2bPQ"
+            crossorigin="anonymous"></script>
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://leer.hetrechtepadcollege.nl/apps/eid-al-fitr-quiz/">
+    <meta property="og:title" content="Kennisquiz ʿEid al-Fiṭr">
+    <meta property="og:description" content="Test je kennis over ʿEid al-Fiṭr! Wat weet jij over het feest van het vasten? Doe nu mee!">
+    <meta property="og:image" content="https://leer.hetrechtepadcollege.nl/apps/eid-al-fitr-quiz/images/share-banner.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Kennisquiz ʿEid al-Fiṭr">
+    <meta property="twitter:description" content="Test je kennis over ʿEid al-Fiṭr! Doe nu mee!">
+    <meta property="twitter:image" content="https://leer.hetrechtepadcollege.nl/apps/eid-al-fitr-quiz/images/share-banner.png">
+</head>
+<body>
+
+<!-- Eid achtergrond: wassende maan + sterren + festieve decoraties -->
+<div class="eid-bg" aria-hidden="true">
+    <svg viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <!-- Sterren – warm goudachtig -->
+        <circle cx="80"  cy="55"  r="1.8" fill="rgba(251,191,36,0.75)"/>
+        <circle cx="210" cy="28"  r="1.2" fill="rgba(251,191,36,0.55)"/>
+        <circle cx="355" cy="88"  r="2.0" fill="rgba(251,191,36,0.65)"/>
+        <circle cx="478" cy="18"  r="1.4" fill="rgba(255,255,255,0.70)"/>
+        <circle cx="562" cy="110" r="1.0" fill="rgba(251,191,36,0.50)"/>
+        <circle cx="680" cy="42"  r="1.6" fill="rgba(255,255,255,0.60)"/>
+        <circle cx="792" cy="78"  r="1.2" fill="rgba(251,191,36,0.55)"/>
+        <circle cx="872" cy="22"  r="1.8" fill="rgba(255,255,255,0.65)"/>
+        <circle cx="148" cy="152" r="1.0" fill="rgba(251,191,36,0.40)"/>
+        <circle cx="312" cy="178" r="1.4" fill="rgba(255,255,255,0.45)"/>
+        <circle cx="452" cy="158" r="0.9" fill="rgba(251,191,36,0.38)"/>
+        <circle cx="622" cy="198" r="1.2" fill="rgba(255,255,255,0.42)"/>
+        <circle cx="752" cy="168" r="1.0" fill="rgba(251,191,36,0.38)"/>
+        <circle cx="38"  cy="200" r="1.3" fill="rgba(255,255,255,0.35)"/>
+        <circle cx="935" cy="50"  r="1.1" fill="rgba(251,191,36,0.50)"/>
+        <circle cx="1035" cy="105" r="1.4" fill="rgba(255,255,255,0.45)"/>
+        <circle cx="1150" cy="60"  r="1.0" fill="rgba(251,191,36,0.50)"/>
+        <circle cx="1250" cy="130" r="0.8" fill="rgba(255,255,255,0.38)"/>
+        <!-- Extra sterren linksonder -->
+        <circle cx="60"  cy="400" r="0.9" fill="rgba(251,191,36,0.25)"/>
+        <circle cx="180" cy="520" r="1.1" fill="rgba(255,255,255,0.22)"/>
+        <circle cx="100" cy="650" r="0.8" fill="rgba(251,191,36,0.20)"/>
+
+        <!-- Wassende maan (rechtsboven) – goud -->
+        <defs>
+            <mask id="moon-mask">
+                <rect width="1440" height="900" fill="white"/>
+                <circle cx="1388" cy="-32" r="155" fill="black"/>
+            </mask>
+        </defs>
+        <circle cx="1308" cy="5" r="178" mask="url(#moon-mask)" fill="rgba(251,191,36,0.13)"/>
+        <circle cx="1308" cy="5" r="178" mask="url(#moon-mask)" fill="none" stroke="rgba(251,191,36,0.22)" stroke-width="2"/>
+
+        <!-- Lantaarn links -->
+        <g transform="translate(55, 260)" opacity="0.18">
+            <rect x="0" y="12" width="28" height="38" rx="4" fill="#f59e0b"/>
+            <rect x="8" y="0"  width="12" height="16" rx="2" fill="#f59e0b"/>
+            <line x1="14" y1="16" x2="14" y2="12" stroke="#f59e0b" stroke-width="2"/>
+            <rect x="3" y="15" width="22" height="32" rx="3" fill="rgba(255,220,80,0.5)"/>
+        </g>
+
+        <!-- Lantaarn rechts -->
+        <g transform="translate(1350, 300)" opacity="0.16">
+            <rect x="0" y="12" width="28" height="38" rx="4" fill="#10b981"/>
+            <rect x="8" y="0"  width="12" height="16" rx="2" fill="#10b981"/>
+            <line x1="14" y1="16" x2="14" y2="12" stroke="#10b981" stroke-width="2"/>
+            <rect x="3" y="15" width="22" height="32" rx="3" fill="rgba(100,255,180,0.4)"/>
+        </g>
+
+        <!-- Geometrisch patroon linksonder (subtiel) -->
+        <g transform="translate(20, 700)" opacity="0.07" stroke="#f59e0b" stroke-width="1" fill="none">
+            <polygon points="30,0 60,52 0,52"/>
+            <polygon points="30,10 55,47 5,47"/>
+        </g>
+
+        <!-- Geometrisch patroon rechtsonder (subtiel) -->
+        <g transform="translate(1380, 700)" opacity="0.07" stroke="#10b981" stroke-width="1" fill="none">
+            <polygon points="30,0 60,52 0,52"/>
+            <polygon points="30,10 55,47 5,47"/>
+        </g>
+    </svg>
+</div>
+
+<div class="page-wrapper">
+
+    <header class="site-header">
+        <img src="images/HRPC-logo.png" alt="Logo Het Rechte Pad College" class="site-logo">
+    </header>
+
+    <main class="quiz-card">
+
+        <div class="quiz-title-block">
+            <div class="eid-badge">🌙 ʿEid al-Fiṭr</div>
+            <h1>Kennisquiz ʿEid al-Fiṭr</h1>
+            <p class="quiz-subtitle">Test je kennis over het feest van het vasten!</p>
+        </div>
+
+        <div class="character-container">
+            <img id="character-img" src="images/mw-neutral.png" alt="Karakter" class="character animate-character">
+        </div>
+
+        <h2 id="question-text">De vraag komt hier...</h2>
+
+        <div id="answer-buttons"></div>
+
+        <div id="uitleg-container" class="hide uitleg-box">
+            <div class="uitleg-header">
+                <span class="uitleg-icon">✨</span>
+                <span class="uitleg-label">Toelichting</span>
+            </div>
+            <p id="uitleg-tekst"></p>
+            <button id="next-btn" class="btn btn-next">Volgende vraag →</button>
+        </div>
+
+        <div id="score-display" class="score-display">Score: 0</div>
+
+        <div class="progress-section">
+            <div class="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div id="result-container" class="hide result-box">
+            <button id="whatsapp-share-btn" class="btn btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Deel via WhatsApp
+            </button>
+            <button id="restart-btn" class="btn btn-secondary">Opnieuw spelen</button>
+            <a href="../../" id="portal-link-btn" class="btn btn-secondary">Naar het Leerportaal</a>
+        </div>
+
+    </main>
+
+    <div class="portal-home-wrap">
+        <a href="https://leer.hetrechtepadcollege.nl/" class="portal-home-btn">← Terug naar Leerportaal</a>
+    </div>
+
+</div>
+
+<audio id="correct-sound" src="sounds/correct.mp3" preload="auto"></audio>
+<audio id="wrong-sound" src="sounds/wrong.mp3" preload="auto"></audio>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" integrity="sha384-HAH79XdRvHr6axVGh4xQWVCp14kcd32bNk4Xu0sHDHtFQ42n6BAM8ykvB47dGz6D" crossorigin="anonymous"></script>
+<script src="script.js"></script>
+</body>
+</html>
