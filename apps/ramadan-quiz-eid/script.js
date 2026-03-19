@@ -280,7 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const uitnodiging = `As-Salām ʿAlaykum! Ik heb net een leuke ʿEid al-Fiṭr kennisquiz gedaan. Wil jij je kennis ook testen? Hier vind je de quiz: ${websiteUrl}`;
             const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(uitnodiging)}`;
             window.open(whatsappUrl, "_blank");
-            trackEvent("eid-al-fitr-quiz/gedeeld-whatsapp", "ʿEid al-Fiṭr quiz gedeeld via WhatsApp");
+            trackEvent("ramadan-quiz-eid/gedeeld-whatsapp", "ʿEid al-Fiṭr quiz gedeeld via WhatsApp");
         });
     }
 
@@ -290,7 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         completionTrackingRequested = true;
 
-        if (trackEvent("eid-al-fitr-quiz/quiz-voltooid", "Deelnemer heeft de ʿEid quiz afgerond")) {
+        if (trackEvent("ramadan-quiz-eid/quiz-voltooid", "Deelnemer heeft de ʿEid quiz afgerond")) {
             completionTracked = true;
             return;
         }
@@ -351,11 +351,11 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
         trackEvent(
-            isCorrect ? "eid-al-fitr-quiz/antwoord-goed" : "eid-al-fitr-quiz/antwoord-fout",
+            isCorrect ? "ramadan-quiz-eid/antwoord-goed" : "ramadan-quiz-eid/antwoord-fout",
             isCorrect ? "Eid quiz antwoord goed" : "Eid quiz antwoord fout"
         );
         trackEvent(
-            isCorrect ? `eid-al-fitr-quiz/v${currentIdx + 1}-goed` : `eid-al-fitr-quiz/v${currentIdx + 1}-fout`,
+            isCorrect ? `ramadan-quiz-eid/v${currentIdx + 1}-goed` : `ramadan-quiz-eid/v${currentIdx + 1}-fout`,
             isCorrect ? `Vraag ${currentIdx + 1} correct` : `Vraag ${currentIdx + 1} fout`
         );
 
@@ -440,7 +440,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     showQuestion();
     if (!quizStartTracked) {
-        trackEvent("eid-al-fitr-quiz/quiz-gestart", "ʿEid al-Fiṭr quiz gestart");
+        trackEvent("ramadan-quiz-eid/quiz-gestart", "ʿEid al-Fiṭr quiz gestart");
         quizStartTracked = true;
     }
 });
