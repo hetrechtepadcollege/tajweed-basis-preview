@@ -1,507 +1,169 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="nl" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/icons/favicon.ico" sizes="48x48">
-    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
-    <link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96">
-    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
-    <link rel="manifest" href="/icons/site.webmanifest">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
-    <meta name="description" content="Ontdek onze interactieve leer-apps en verdiep je islamitische kennis op Het Rechte Pad College.">
-    <title>Leerportaal - Het Rechte Pad College</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --blue: #1f294d;
-            --blue-dim: rgba(31, 41, 77, 0.08);
-            --blue-border: rgba(31, 41, 77, 0.12);
-            --gold: #d4af37;
-            --gold-bg: rgba(212, 175, 55, 0.10);
-            --gold-border: rgba(212, 175, 55, 0.32);
-            --bg: #f9f8f6;
-            --card-bg: #ffffff;
-            --text: #1c2340;
-            --muted: #5c6e8a;
-            --border: rgba(31, 41, 77, 0.09);
-            --shadow: 0 1px 4px rgba(31, 41, 77, 0.06), 0 4px 16px rgba(31, 41, 77, 0.07);
-            --shadow-hover: 0 8px 28px rgba(31, 41, 77, 0.14);
-            --featured-bg: rgba(31, 41, 77, 0.04);
-            --featured-border: rgba(31, 41, 77, 0.13);
-        }
-
-        * { box-sizing: border-box; }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            padding: 0 20px 72px;
-        }
-
-        /* ── HERO ── */
-        .hero {
-            width: 100%;
-            text-align: center;
-            padding: 52px 20px 48px;
-            background: var(--blue);
-            margin-bottom: 48px;
-        }
-
-        .site-logo {
-            width: 100%;
-            max-width: 680px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-
-        /* ── GRID ── */
-        .portal-grid {
-            width: 100%;
-            max-width: 980px;
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 20px;
-            align-items: start;
-        }
-
-        /* ── CARD (basis) ── */
-        .card {
-            background: var(--card-bg);
-            padding: 28px;
-            border-radius: 14px;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
-            text-decoration: none;
-            color: var(--text);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 260px;
-            position: relative;
-            overflow: hidden;
-            transition: transform 200ms ease, box-shadow 200ms ease;
-            opacity: 0;
-            transform: translateY(16px);
-            text-align: center;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        /* ── FEATURED CARD ── */
-        .card[data-featured="true"] {
-            grid-column: 1 / -1;
-            background: var(--featured-bg);
-            border-color: var(--featured-border);
-            min-height: auto;
-            padding: 32px 36px;
-            flex-direction: row;
-            align-items: center;
-            gap: 32px;
-            text-align: left;
-        }
-
-        .card[data-featured="true"] .card-body {
-            flex: 1;
-        }
-
-        .card[data-featured="true"] .play-btn {
-            margin-top: 0;
-            flex-shrink: 0;
-        }
-
-        /* ── EMOJI CONTAINER ── */
-        .emoji-container {
-            width: 54px;
-            height: 54px;
-            border-radius: 13px;
-            background: var(--blue-dim);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.65rem;
-            margin: 0 auto 16px;
-            flex-shrink: 0;
-        }
-
-        .card[data-featured="true"] .emoji-container {
-            width: 68px;
-            height: 68px;
-            border-radius: 16px;
-            font-size: 2rem;
-            margin: 0;
-        }
-
-        /* ── CARD HEADINGS & TEXT ── */
-        .card h2 {
-            margin: 0 0 6px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: var(--text);
-            font-size: 1.05rem;
-            font-weight: 700;
-            letter-spacing: -0.1px;
-        }
-
-        .card[data-featured="true"] h2 {
-            font-size: 1.2rem;
-        }
-
-        .card p {
-            color: var(--muted);
-            font-size: 0.875rem;
-            line-height: 1.65;
-            margin: 0;
-        }
-
-        .card-subtitle {
-            margin: 0 0 6px;
-            color: var(--muted);
-            font-size: 0.84rem;
-            font-weight: 600;
-        }
-
-        /* ── LABELS & TAGS ── */
-        .featured-label {
-            display: inline-block;
-            font-size: 0.68rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.7px;
-            color: var(--blue);
-            background: var(--blue-dim);
-            border: 1px solid var(--blue-border);
-            padding: 3px 9px;
-            border-radius: 4px;
-            margin-bottom: 10px;
-            margin-right: 6px;
-        }
-
-        .card-tag {
-            display: inline-block;
-            background: var(--gold-bg);
-            color: #7a5f0a;
-            border: 1px solid var(--gold-border);
-            border-radius: 4px;
-            padding: 3px 9px;
-            font-size: 0.68rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .card-tag-update {
-            display: inline-block;
-            background: rgba(34, 120, 70, 0.08);
-            color: #1a5c38;
-            border: 1px solid rgba(34, 120, 70, 0.30);
-            border-radius: 4px;
-            padding: 3px 9px;
-            font-size: 0.68rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            margin-left: 6px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* ── RIBBON (Update diagonaal) ── */
-        .card-ribbon {
-            position: absolute;
-            top: 18px;
-            right: -26px;
-            width: 100px;
-            background: #1a7a45;
-            color: #ffffff;
-            font-size: 0.60rem;
-            font-weight: 700;
-            text-align: center;
-            padding: 5px 0;
-            transform: rotate(45deg);
-            text-transform: uppercase;
-            letter-spacing: 0.6px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
-            pointer-events: none;
-        }
-
-        /* ── GHOST BUTTON ── */
-        .play-btn {
-            display: inline-block;
-            border: 1.5px solid var(--blue);
-            color: var(--blue);
-            background: transparent;
-            padding: 10px 22px;
-            border-radius: 8px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 600;
-            font-size: 0.87rem;
-            letter-spacing: 0.1px;
-            margin-top: 20px;
-            transition: background 160ms ease, color 160ms ease;
-        }
-
-        .card:hover .play-btn {
-            background: var(--blue);
-            color: #ffffff;
-        }
-
-        /* ── VISIBILITY STATES ── */
-        /*
-         * Nieuwe apps altijd toevoegen met .card-hidden totdat de beheerder
-         * aangeeft dat de tegel live mag. Dan kiezen tussen:
-         *   - .card-hidden  → volledig onzichtbaar (standaard voor nieuwe apps)
-         *   - .coming-soon  → grijs + niet-klikbaar (aankondiging)
-         *   - (geen klasse) → volledig live en klikbaar
-         */
-        .card-hidden {
-            display: none !important;
-        }
-
-        .coming-soon {
-            opacity: 0.35 !important;
-            filter: grayscale(1);
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-
-        .card-disabled {
-            opacity: 0.5;
-            pointer-events: none;
-            cursor: default;
-        }
-
-        /* ── FOOTER ── */
-        footer {
-            color: var(--muted);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-            margin-top: 56px;
-            font-size: 0.83rem;
-        }
-
-        footer a {
-            color: var(--muted);
-            text-decoration: none;
-        }
-
-        .footer-url {
-            text-decoration: underline;
-        }
-
-        /* ── RESPONSIVE ── */
-        @media (max-width: 900px) {
-            .portal-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .site-logo {
-                max-width: 90%;
-            }
-
-            .card[data-featured="true"] {
-                flex-direction: column;
-                text-align: center;
-                padding: 28px;
-                gap: 20px;
-            }
-
-            .card[data-featured="true"] .emoji-container {
-                margin: 0 auto;
-            }
-
-            .card[data-featured="true"] .play-btn {
-                margin-top: 20px;
-            }
-        }
-    </style>
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://leer.hetrechtepadcollege.nl/">
-    <meta property="og:title" content="Leerportaal - Het Rechte Pad College">
-    <meta property="og:description" content="Ontdek onze interactieve kennisquizzes en leer meer over de islam op een speelse manier!">
-    <meta property="og:image" content="https://leer.hetrechtepadcollege.nl/images/share-banner.png">
-
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://leer.hetrechtepadcollege.nl/">
-    <meta property="twitter:title" content="Leerportaal - Het Rechte Pad College">
-    <meta property="twitter:description" content="Ontdek onze interactieve kennisquizzes en leer meer over de islam op een speelse manier!">
-    <meta property="twitter:image" content="https://leer.hetrechtepadcollege.nl/images/share-banner.png">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Basis Tajweed | Het Rechte Pad College</title>
+  <link rel="icon" href="/icons/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+  <link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/icons/site.webmanifest">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://hetrechtepadcollege.goatcounter.com;">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="app-shell">
+  <header class="app-header">
+    <a href="../../" class="back-link" aria-label="Terug naar leerportaal">←</a>
+    <div>
+      <h1 class="header-title">Basis Tajweed</h1>
+      <p class="header-subtitle">Leer de regels stap voor stap uit het hoofd</p>
+    </div>
+  </header>
 
-    <div class="hero">
-        <img src="images/HRPC-logo.png" alt="Het Rechte Pad College — Geloof in leren, leren in geloof" class="site-logo">
+  <section class="intro-section">
+    <p>Tajweed betekent: de letters hun rechten geven tijdens het reciteren van de Koran.</p>
+    <blockquote>"En reciteer de Koran met zorgvuldige, duidelijke recitatie." <span>(73:4)</span></blockquote>
+  </section>
+
+  <div class="toolbar">
+    <div class="mode-toggle" role="tablist" aria-label="Modus">
+      <button class="mode-btn active" id="modeGallery" role="tab" aria-selected="true">Overzicht</button>
+      <button class="mode-btn" id="modeFlashcard" role="tab" aria-selected="false">Flashcards</button>
+      <button class="mode-btn" id="modeQuiz" role="tab" aria-selected="false">Quiz</button>
+      <button class="mode-btn" id="modeLesson" role="tab" aria-selected="false">Lesmodus</button>
+    </div>
+    <div class="search-wrap" id="searchWrap">
+      <input type="search" id="searchInput" class="search-input" placeholder="Zoek op regel, categorie of voorbeeld...">
+    </div>
+  </div>
+
+  <div class="study-utilities" id="studyUtilities">
+    <button class="utility-btn" id="toggleDifficultOnly" type="button">Alleen lastig: uit</button>
+    <button class="utility-btn" id="toggleReviewOnly" type="button">Herhaalmodus: uit</button>
+    <p class="due-info" id="dueInfo">0 regels toe aan herhaling</p>
+  </div>
+
+  <main class="view view-gallery active" id="viewGallery">
+    <div class="rules-grid" id="rulesGrid"></div>
+    <p class="no-results" id="noResults" hidden>Geen regels gevonden.</p>
+  </main>
+
+  <main class="view view-flashcard" id="viewFlashcard" hidden>
+    <div class="fc-progress-wrap">
+      <div class="fc-progress-bar"><div id="fcProgressFill" class="fc-progress-fill"></div></div>
+      <p id="fcProgressText" class="fc-progress-text">0 / 0 geleerd</p>
     </div>
 
-    <div class="portal-grid">
-
-        <!-- Featured card: zet data-featured="true" op de kaart die je wilt uitlichten -->
-        <a href="apps/tuin-van-dzikr/" class="card" data-featured="true">
-            <div class="emoji-container">🌳</div>
-            <div class="card-body">
-                <span class="featured-label">Uitgelicht</span><span class="card-tag">Nieuw</span>
-                <h2>De Tuin van Dzikr</h2>
-                <p class="card-subtitle">Laat de tuin van je hart tot bloei komen</p>
-                <p>Leer de betekenis van dzikr (het gedenken van Allah). Met elke dzikr groeit jouw tuin — en wordt er een boom geplant in het Paradijs.</p>
-            </div>
-            <div class="play-btn">Open ➔</div>
-        </a>
-
-        <a href="apps/gebed-quiz/" class="card">
-            <div>
-                <span class="card-tag">Nieuw</span>
-                <div class="emoji-container">🤲🏽</div>
-                <h2>Kennisquiz Gebed</h2>
-                <p class="card-subtitle">Kom tot het gebed</p>
-                <p>Test je kennis over het gebed: gebedstijden, reinheid, uitvoering en wat het gebed ongeldig maakt.</p>
-            </div>
-            <div class="play-btn">Speel nu</div>
-        </a>
-
-        <a href="apps/ramadan-kalender/" class="card">
-            <div>
-                <div class="emoji-container">🗓️</div>
-                <h2>Ramadankalender</h2>
-                <p>Elke dag een kleine daad van grote waarde.</p>
-            </div>
-            <div class="play-btn">Open ➔</div>
-        </a>
-
-        <a href="apps/ramadan-explorer/" class="card">
-            <div class="card-ribbon">Update</div>
-            <div>
-                <span class="card-tag">Kinderen</span>
-                <div class="emoji-container">🧭</div>
-                <h2>Ramadan Explorer</h2>
-                <p>Ontdek de Ramadan met spellen, weetjes en uitdagingen. Verzamel sterren en groei stap voor stap.</p>
-            </div>
-            <div class="play-btn">Speel Nu ➔</div>
-        </a>
-
-        <a href="apps/ramadan-quiz/" class="card">
-            <div>
-                <div class="emoji-container">🌕</div>
-                <h2>Kennisquiz Ramadan</h2>
-                <p>Test en verrijk je kennis over de heilige maand Ramadan en het vasten: van spirituele inzichten tot praktische regelgeving.</p>
-            </div>
-            <div class="play-btn">Speel Nu ➔</div>
-        </a>
-
-        <a href="apps/ramadan-quiz-wel-niet/" class="card">
-            <div>
-                <div class="emoji-container">❓</div>
-                <h2>Kennisquiz Ramadan</h2>
-                <p class="card-subtitle">Geldig of verbroken?</p>
-                <p>Twijfel jij ook soms of je vasten nog geldig is? Doe nu mee met de quiz en word zeker van je zaak!</p>
-            </div>
-            <div class="play-btn">Speel Nu ➔</div>
-        </a>
-
-        <a href="apps/ramadan-intimiteit/" class="card">
-            <div>
-                <div class="emoji-container">❤️‍🔥</div>
-                <h2>Kennisquiz Ramadan</h2>
-                <p class="card-subtitle">Intimiteit & Vasten</p>
-                <p>Een kennisquiz over intimiteit, reinheid en de regels rondom het vasten in Ramadan.</p>
-            </div>
-            <div class="play-btn">Speel Nu ➔</div>
-        </a>
-
-        <a href="apps/ramadan-quiz-kids/" class="card">
-            <div>
-                <span class="card-tag">Kinderen</span>
-                <div class="emoji-container">🌝</div>
-                <h2>Kennisquiz Ramadan voor kids</h2>
-                <p>Test je kennis over de regels, geschiedenis en de spirituele betekenis van de Ramadan.</p>
-            </div>
-            <div class="play-btn">Speel Nu ➔</div>
-        </a>
-
-        <a href="apps/ramadan-quiz-eid/" class="card">
-            <div>
-                <span class="card-tag">Nieuw</span>
-                <div class="emoji-container">🌙</div>
-                <h2>Kennisquiz ʿEid al-Fiṭr</h2>
-                <p class="card-subtitle">Feest van het Vasten</p>
-                <p>Test je kennis over ʿEid al-Fiṭr! Van de geschiedenis en het gebed tot de tradities en de ware betekenis van dit feest.</p>
-            </div>
-            <div class="play-btn">Speel Nu ➔</div>
-        </a>
-
-        <a href="apps/de-waardevolle-tien/" class="card">
-            <div>
-                <span class="card-tag">Nieuw</span>
-                <div class="emoji-container">🌗</div>
-                <h2>De Waardevolle Tien</h2>
-                <p class="card-subtitle">Op zoek naar Laylatul Qadr</p>
-                <p>Hou eenvoudig je ʿibādah (erediensten) bij, zodat je doelgericht en bewust het beste uit de laatste tien nachten haalt. Mis Laylatul Qadr niet!</p>
-            </div>
-            <div class="play-btn">Open ➔</div>
-        </a>
-
-        <a href="apps/ramadan-deelkaarten/" class="card">
-            <div>
-                <span class="card-tag">Nieuw</span>
-                <div class="emoji-container">🌟</div>
-                <h2>Laylatul Qadr Deelkaarten</h2>
-                <p class="card-subtitle">Laatste 10 nachten</p>
-                <p>Deel dagelijkse kaarten met Koranverzen, hadith, du'as en dzikr voor de laatste 10 nachten van Ramadan. Als WhatsApp-bericht of downloadbare afbeelding.</p>
-            </div>
-            <div class="play-btn">Open ➔</div>
-        </a>
-
-        <a href="apps/nacht-van-qadr/" class="card">
-            <div>
-                <span class="card-tag">Nieuw</span>
-                <div class="emoji-container">🌌</div>
-                <h2>De Nacht van Qadr</h2>
-                <p class="card-subtitle">Ontdek Laylatul Qadr</p>
-                <p>Ontdek de bijzondere Nacht van Qadr (Laylatul Qadr) in deze verhalende ervaring. Leer over soera al-Qadr en meer.</p>
-            </div>
-            <div class="play-btn">Open ➔</div>
-        </a>
-
-        <div class="card coming-soon">
-            <div>
-                <span class="card-tag">Binnenkort</span>
-                <div class="emoji-container">📘</div>
-                <h2>Basis Tajweed</h2>
-                <p class="card-subtitle">Interactief leren & memoriseren</p>
-                <p>Leer de basisregels van tajweed met overzicht, flashcards, quiz en lesmodus. Oefen stap voor stap en bouw zekerheid op in je recitatie.</p>
-            </div>
-            <div class="play-btn">Binnenkort</div>
+    <div class="fc-card-wrap">
+      <div class="fc-card" id="fcCard">
+        <div class="fc-card-inner" id="fcCardInner">
+          <div class="fc-front">
+            <span id="fcNumber" class="fc-number">1</span>
+            <span id="fcCategory" class="fc-category">Categorie</span>
+            <p id="fcTitle" class="fc-title"></p>
+            <p id="fcArabic" class="fc-arabic" dir="rtl" lang="ar"></p>
+            <p class="fc-tap-hint">Tik om te draaien</p>
+          </div>
+          <div class="fc-back">
+            <p id="fcKeyword" class="fc-keyword"></p>
+            <p id="fcDefinition"></p>
+            <p id="fcTrigger"></p>
+            <p id="fcHow"></p>
+            <p id="fcExample"></p>
+            <div id="fcArticulation" class="articulation-hint"></div>
+            <p id="fcMemory"></p>
+          </div>
         </div>
-
-        <div class="card coming-soon">
-            <div>
-                <div class="emoji-container">🕋</div>
-                <h2>De Hadj</h2>
-                <p>Alles over de bedevaart naar Mekka en de rituelen van de vijfde zuil van de islam.</p>
-            </div>
-            <div class="play-btn">Binnenkort ➔</div>
-        </div>
-
+      </div>
     </div>
 
-    <footer>
-        <p class="footer-text">© 2026 Het Rechte Pad College</p>
-        <a href="https://www.hetrechtepad.nl" target="_blank" rel="noopener noreferrer" class="footer-link">Bezoek ook onze website: <span class="footer-url">www.hetrechtepad.nl</span></a>
-    </footer>
+    <div class="fc-controls">
+      <button id="fcPrev" class="fc-nav-btn" aria-label="Vorige">◀</button>
+      <div class="fc-center-controls">
+        <label class="fc-learned-toggle"><input type="checkbox" id="fcLearnedCheck"><span>Uit het hoofd</span></label>
+        <label class="fc-learned-toggle"><input type="checkbox" id="fcDifficultCheck"><span>Lastig</span></label>
+        <button id="fcShuffleBtn" class="fc-shuffle-btn" type="button">Shuffle</button>
+      </div>
+      <button id="fcNext" class="fc-nav-btn" aria-label="Volgende">▶</button>
+    </div>
+    <p class="fc-counter" id="fcCounter">1 / 1</p>
 
-    <script src="script.js"></script>
+    <div class="review-controls">
+      <button class="review-btn" id="reviewHard" type="button">Moeilijk</button>
+      <button class="review-btn" id="reviewGood" type="button">Goed</button>
+      <button class="review-btn" id="reviewEasy" type="button">Vlot</button>
+    </div>
+    <p class="review-next" id="reviewNextInfo">Volgende herhaling: -</p>
+  </main>
+
+  <main class="view view-quiz" id="viewQuiz" hidden>
+    <div class="quiz-card">
+      <p id="quizLabel" class="quiz-label">Vraag 1</p>
+      <p class="quiz-question">Welke tajweed-regel past bij dit voorbeeld?</p>
+      <p id="quizExample" class="quiz-example" dir="rtl" lang="ar"></p>
+      <div id="quizArticulation" class="articulation-hint"></div>
+      <div id="quizOptions" class="quiz-options"></div>
+      <p id="quizFeedback" class="quiz-feedback"></p>
+      <div class="quiz-actions"><button class="utility-btn" id="quizNextBtn" type="button">Volgende vraag</button></div>
+    </div>
+    <p class="quiz-score" id="quizScore">Score: 0 goed • 0 fout</p>
+  </main>
+
+  <main class="view view-lesson" id="viewLesson" hidden>
+    <div class="lesson-shell">
+      <div class="lesson-header">
+        <p id="lessonProgress" class="lesson-progress">Les 1 van 10</p>
+        <h2 id="lessonTitle" class="lesson-title">Les titel</h2>
+        <p id="lessonDesc" class="lesson-desc"></p>
+      </div>
+      <section class="lesson-notes" id="lessonNotes">
+        <h3 class="lesson-notes-title">Kernpunten</h3>
+        <ul id="lessonNotesList" class="lesson-notes-list"></ul>
+      </section>
+      <div class="lesson-nav">
+        <button class="utility-btn" id="lessonPrevBtn" type="button">Vorige les</button>
+        <button class="utility-btn" id="lessonNextBtn" type="button">Volgende les</button>
+      </div>
+      <div class="lesson-cards" id="lessonCards"></div>
+      <div class="lesson-checkpoint">
+        <p id="lessonCheckpointLabel" class="quiz-label">Checkpoint</p>
+        <p id="lessonCheckpointQuestion" class="quiz-question">Vraag</p>
+        <div id="lessonCheckpointOptions" class="quiz-options"></div>
+        <p id="lessonCheckpointFeedback" class="quiz-feedback"></p>
+        <div class="quiz-actions">
+          <button class="utility-btn" id="lessonCheckpointNext" type="button">Nieuwe checkpoint</button>
+          <button class="utility-btn" id="lessonMarkDone" type="button">Markeer les afgerond</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="modalOverlay" hidden>
+    <div class="modal" role="dialog" aria-modal="true">
+      <button class="modal-close" id="modalClose" aria-label="Sluiten">×</button>
+      <span id="modalNumber" class="modal-number">1</span>
+      <p id="modalCategory" class="modal-category"></p>
+      <p id="modalTitle" class="modal-title"></p>
+      <p id="modalArabic" class="modal-arabic" dir="rtl" lang="ar"></p>
+      <div class="modal-divider"></div>
+      <p id="modalKeyword"></p>
+      <p id="modalDefinition"></p>
+      <p id="modalTrigger"></p>
+      <p id="modalHow"></p>
+      <p id="modalExample"></p>
+      <div id="modalArticulation" class="articulation-hint"></div>
+      <p id="modalMemory"></p>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script data-goatcounter="https://hetrechtepadcollege.goatcounter.com/count" async src="https://gc.zgo.at/count.js"
+        integrity="sha384-DGiREytotlUiLflu8vLo0vvfxKWn36pKPT1ZBhh3R+3vhwrS/4p3H9eys9Zr2bPQ" crossorigin="anonymous"></script>
 </body>
 </html>
